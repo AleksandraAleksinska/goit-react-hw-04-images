@@ -3,6 +3,7 @@ import css from 'styles.module.css'
 
 
 export default class Searchbar extends Component {
+    
   render() {
     return (
         <header className={css.Searchbar}>
