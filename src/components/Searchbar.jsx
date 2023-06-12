@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import css from 'styles.module.css'
 
 
-export default class SearchBar extends Component {
+export default class Searchbar extends Component {
     
   render() {
 
@@ -31,6 +31,6 @@ export default class SearchBar extends Component {
   }
 }
 
-SearchBar.propTypes = {
+Searchbar.propTypes = {
   onSubmit: PropTypes.func.isRequired
 }
