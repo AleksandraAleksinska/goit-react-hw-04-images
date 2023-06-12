@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from "prop-types";
 import css from 'styles.module.css'
 import ImageGalleryItem from './ImageGalleryItem';
 import 'basiclightbox/dist/basicLightbox.min.css';
@@ -18,10 +19,9 @@ export default class ImageGallery extends Component {
                 webformatURL={galleryItem.webformatURL}
                 tags={galleryItem.tags}
                 openModal={() => {
-                    
-                    basicLightbox.create(`
-		            <img src="${galleryItem.largeImageURL}">
-	                `).show()
+                  basicLightbox.create(
+                    `<img src="${galleryItem.largeImageURL}">
+	                  `).show()
                 }}
 
             />): null}
@@ -30,3 +30,10 @@ export default class ImageGallery extends Component {
   }
 }
 
+ImageGallery.propTypes = {
+  gallery: PropTypes.arrayOf(PropTypes.shape({
+    webformatURL: PropTypes.string,
+    tags: PropTypes.string,
+    openModal: PropTypes.func
+  }))
+}

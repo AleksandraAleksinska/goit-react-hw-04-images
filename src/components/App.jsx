@@ -90,24 +90,22 @@ export default class App extends Component {
       />
       { this.state.isLoading && 
       <Watch
-      height="80"
-      width="80"
-      radius="48"
-      color="#3f51b5"
-      ariaLabel="watch-loading"
-      wrapperStyle={{
-        display: "flex",
-        justifyContent: "center",
-        paddingTop: "15px"
-      }}
-      wrapperClassName=""
-      visible={true}
-    />}
+        height="80"
+        width="80"
+        radius="48"
+        color="#3f51b5"
+        ariaLabel="watch-loading"
+        wrapperStyle={{
+          display: "flex",
+          justifyContent: "center",
+          paddingTop: "15px"
+        }}
+        visible={true}
+      />}
       <Button 
         onClick={this.handleSubmit}
         gallery={this.state.gallery}
-      />
-        
+      />        
       </Fragment>
     );
   }

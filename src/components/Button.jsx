@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from "prop-types";
 import css from 'styles.module.css'
 
 export default class Button extends Component {
@@ -15,3 +16,11 @@ export default class Button extends Component {
   }
 }
 
+Button.propTypes = {
+  onClick: PropTypes.func.isRequired,
+  gallery: PropTypes.arrayOf(PropTypes.shape({
+    webformatURL: PropTypes.string,
+    tags: PropTypes.string,
+    openModal: PropTypes.func
+  }))
+}
