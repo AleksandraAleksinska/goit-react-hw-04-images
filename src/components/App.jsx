@@ -1,6 +1,7 @@
 import { Fragment } from "react";
 import ImageGallery from "./ImageGallery";
 import SearchBar from "./SearchBar";
+
 import axios from "axios";
 import { Watch } from  'react-loader-spinner'
 
