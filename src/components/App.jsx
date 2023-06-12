@@ -82,9 +82,9 @@ export default class App extends Component {
   render() {
     return (
       <Fragment>
-      <SearchBar 
+      {/* <SearchBar 
         onSubmit={this.handleFormSubmit}
-      />
+      /> */}
       <ImageGallery
         gallery={this.state.gallery}
       />
