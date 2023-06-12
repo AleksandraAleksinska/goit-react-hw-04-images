@@ -47,8 +47,7 @@ export default class App extends Component {
       per_page: 12,      
     });
     
-      const URL = 'https://pixabay.com/api/?' + searchParams;
-      const response = await axios.get(URL)
+      const response = await axios.get('https://pixabay.com/api/?' + searchParams)
       const galleryItems = response.data.hits;
       
       this.setState(prevState => ({
