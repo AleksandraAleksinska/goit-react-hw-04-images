@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { Fragment } from "react";
-
 import ImageGallery from "./ImageGallery";
 import axios from "axios";
 import { Watch } from  'react-loader-spinner';
