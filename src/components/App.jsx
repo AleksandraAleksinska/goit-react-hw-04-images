@@ -29,7 +29,7 @@ export default class App extends Component {
   };
 
   openModal = (largeImageURL, tags) => {
-    this.setState({ isVisible: true, modalImage: largeImageURL, tags: tags });
+    this.setState({ isVisible: true, modalImg: largeImageURL, tags: tags });
   };
 
   handleSubmit = (e) => {
