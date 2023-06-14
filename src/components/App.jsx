@@ -59,7 +59,7 @@ export default class App extends Component {
       image_type: 'photo',
       orientation: 'horizontal',
       page: this.state.page,
-      per_page: 12,      
+      per_page: 12      
     });
 
       const response = await axios.get('https://pixabay.com/api/?' + searchParams)
@@ -131,7 +131,7 @@ export default class App extends Component {
       <Modal
         key={nanoid()} 
         closeModal={this.closeModal} 
-        largeImageURL={this.state.modalImage} 
+        largeImageURL={this.state.modalImg} 
         tags={this.state.tags}  
       />
       )}
