@@ -5,6 +5,8 @@ import axios from "axios";
 import { Watch } from  'react-loader-spinner';
 import Button from "./Button";
 import Searchbar from './Searchbar';
+import Modal from './Modal';
+import { nanoid } from 'nanoid';
 
 
 
@@ -15,8 +17,20 @@ export default class App extends Component {
     isLoading: false,
     query: '',
     error: null,
-    page: 1
+    page: 1,
+    isVisible: false,
+    modalImg: null,
+    tags: ''
+    
   }
+
+  closeModal = () => {
+    this.setState({ isVisible: false });
+  };
+
+  openModal = (largeImageURL, tags) => {
+    this.setState({ isVisible: true, modalImage: largeImageURL, tags: tags });
+  };
 
   handleSubmit = (e) => {
     e.preventDefault()
@@ -36,6 +50,7 @@ export default class App extends Component {
     
   }
 
+ 
   getGalleryImages = async() => {
     
     const searchParams = new URLSearchParams({
@@ -79,14 +94,19 @@ export default class App extends Component {
 
 
   render() {
+
     return (
-      <Fragment>
+
+    <Fragment>
       <Searchbar 
         onSubmit={this.handleFormSubmit}
       />
+
       <ImageGallery
         gallery={this.state.gallery}
+        openModal={this.openModal}        
       />
+
       { this.state.isLoading && 
       <Watch
         height="80"
@@ -101,11 +121,22 @@ export default class App extends Component {
         }}
         visible={true}
       />}
+
       <Button 
         onClick={this.handleSubmit}
         gallery={this.state.gallery}
-      />        
-      </Fragment>
+      />
+
+      { this.state.isVisible && (
+      <Modal
+        key={nanoid()} 
+        closeModal={this.closeModal} 
+        largeImageURL={this.state.modalImage} 
+        tags={this.state.tags}  
+      />
+      )}
+
+    </Fragment>
     );
   }
 }

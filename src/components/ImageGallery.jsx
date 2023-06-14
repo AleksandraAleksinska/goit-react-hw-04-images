@@ -2,31 +2,35 @@ import React, { Component } from 'react';
 import PropTypes from "prop-types";
 import css from 'styles.module.css'
 import ImageGalleryItem from './ImageGalleryItem';
-import 'basiclightbox/dist/basicLightbox.min.css';
 
-const basicLightbox = require('basiclightbox');
+
 
 export default class ImageGallery extends Component {
-  render() {
 
-    const { gallery } = this.props
+  
+ 
+  render() {
     
+    const { gallery, openModal } = this.props;
+   
 
     return (
-        <ul className={css.ImageGallery}>
-            {gallery.length > 0 ? gallery.map(galleryItem => <ImageGalleryItem
+      <ul className={css.ImageGallery}>
+        {gallery.length > 0 &&
+          gallery.map((galleryItem) => (
+            
+              <ImageGalleryItem
                 key={galleryItem.id}
                 webformatURL={galleryItem.webformatURL}
                 tags={galleryItem.tags}
-                openModal={() => {
-                  basicLightbox.create(
-                    `<img src="${galleryItem.largeImageURL}">
-	                  `).show()
-                }}
+                openModal={() => openModal(galleryItem.largeImageURL, galleryItem.tags)}
+              />
+            
+          ))}
 
-            />): null}
-        </ul>
-    )
+       
+      </ul>
+    );
   }
 }
 
