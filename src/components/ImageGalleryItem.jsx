@@ -1,21 +1,19 @@
-import React, { Component } from 'react';
+import React from 'react';
 import PropTypes from "prop-types";
 import css from 'styles.module.css';
 
 
-export default class ImageGalleryItem extends Component {
-  
-  render() {    
 
-    const { webformatURL, tags, openModal } = this.props
-
-    return (
-      <li className={css.ImageGalleryItem}>
-        <img className={css.ImageGalleryItemImage} src={webformatURL} alt={tags} onClick={openModal}/>
-      </li>
-    )
-  }
+const ImageGalleryItem = ({ webformatURL, tags, openModal }) => {
+  return (
+    <li className={css.ImageGalleryItem}>
+      <img className={css.ImageGalleryItemImage} src={webformatURL} alt={tags} onClick={openModal}/>
+    </li>
+  )
 }
+
+export default ImageGalleryItem
+
 
 ImageGalleryItem.propTypes ={
   webformatURL: PropTypes.string.isRequired,
