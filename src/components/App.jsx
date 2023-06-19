@@ -36,8 +36,8 @@ const App = () => {
     setGallery([]);
     
   }
-
-  useEffect((prevState) => {
+  useEffect(() => {setGallery([])},[])
+  useEffect(() => {
       
     const getGalleryImages = async() => {
 
