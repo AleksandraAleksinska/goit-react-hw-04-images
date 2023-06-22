@@ -71,9 +71,25 @@ const App = () => {
 
     getGalleryImages()
   }, [page, query])
+
+  useEffect(() => {
+
+    const closeModalOnESC = (e) => {
+      if(e.key === 'Escape'){
+        closeModal()
+      }
+    }
+    document.addEventListener('keydown', closeModalOnESC)
+    return () => document.removeEventListener('keydown', closeModalOnESC)
+  },[])
     
 
   const closeModal = () => setIsVisible(false);
+  const handleOverlayClick = (event) => {
+    if (event.target === event.currentTarget) {
+      closeModal();
+    }
+  };
 
   const openModal = (largeImageURL, tags) => {
      setIsVisible(true);
@@ -116,7 +132,7 @@ const App = () => {
       { isVisible && (
       <Modal
         key={nanoid()} 
-        closeModal={closeModal} 
+        closeModal={handleOverlayClick} 
         largeImageURL={modalImg} 
         tags={tags}  
       />
